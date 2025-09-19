@@ -141,7 +141,7 @@ export function ContactSection() {
                   className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 hover-lift ${
                     isSubmitted
                       ? "bg-green-500 hover:bg-green-500 text-white"
-                      : "bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90"
+                      : "bg-gradient-to-r from-primary via-primary to-secondary hover:from-primary/90 hover:via-primary/90 hover:to-secondary/90"
                   }`}
                 >
                   {isSubmitting ? (

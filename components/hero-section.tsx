@@ -67,7 +67,7 @@ export function HeroSection() {
           <Button
             size="lg"
             /* Made gradient fading more subtle from 80% to 90% opacity */
-            className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 hover-lift"
+            className="bg-gradient-to-r from-primary via-primary to-secondary hover:from-primary/90 hover:via-primary/90 hover:to-secondary/90 text-primary-foreground font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 hover-lift"
             onClick={() => scrollToSection("projects")}
           >
             View My Projects

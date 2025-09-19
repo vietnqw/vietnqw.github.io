@@ -186,7 +186,7 @@ export function ProjectsSection() {
                     <div className="flex gap-3">
                       <Button
                         size="sm"
-                        className="flex-1 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 hover-lift"
+                        className="flex-1 bg-gradient-to-r from-primary via-primary to-secondary hover:from-primary/90 hover:via-primary/90 hover:to-secondary/90 hover-lift"
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
                         Live Demo
@@ -262,7 +262,10 @@ export function ProjectsSection() {
                     </div>
 
                     <div className="flex gap-2">
-                      <Button size="sm" className="flex-1 text-xs hover-lift">
+                      <Button
+                        size="sm"
+                        className="flex-1 bg-gradient-to-r from-primary via-primary to-secondary hover:from-primary/90 hover:via-primary/90 hover:to-secondary/90 text-xs hover-lift"
+                      >
                         <ExternalLink className="w-3 h-3 mr-1" />
                         Demo
                       </Button>

@@ -1,18 +1,12 @@
 "use client"
 
-import { useState, useEffect, useMemo } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronDown } from "lucide-react"
 
 export function HeroSection() {
   const [displayText, setDisplayText] = useState("")
   const fullText = "AI Engineer | Tech Explorer | Creator"
-
-  // Ensure random visual particles are only rendered after client mounts to avoid SSR mismatch
-  const [isMounted, setIsMounted] = useState(false)
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
 
   useEffect(() => {
     let index = 0
@@ -37,23 +31,21 @@ export function HeroSection() {
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-cyan-900/20" />
 
-      {/* Animated Particles - render only after mount to prevent hydration mismatch */}
-      {isMounted && (
-        <div className="particles">
-          {[...Array(50)].map((_, i) => (
-            <div
-              key={i}
-              className="particle"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 8}s`,
-                animationDuration: `${8 + Math.random() * 4}s`,
-              }}
-            />
-          ))}
-        </div>
-      )}
+      {/* Animated Particles */}
+      <div className="particles">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="particle"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 8}s`,
+              animationDuration: `${8 + Math.random() * 4}s`,
+            }}
+          />
+        ))}
+      </div>
 
       {/* Main Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">

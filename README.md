@@ -1,41 +1,54 @@
-## Hi there 👋
+# Viet Portfolio (Next.js)
 
-Hello, my name is **Ngo Quang Viet**! I'm from the vibrant city of Hanoi, Vietnam.
+A personal portfolio built with Next.js 14, React 18, and Tailwind CSS 4. Includes sections for Hero, About, Skills, Projects, and Contact, plus dark theme and basic analytics.
 
-I'm passionate about **AI**, **data**, and **coding**, as these fields spark my creativity and curiosity. As an **AI Engineer** and a **Data Enthusiast**, I am constantly learning and contributing to meaningful projects in real-world scenarios.
+## Prerequisites
+- Node.js 18+ (or 20+ recommended)
+- pnpm (Corepack recommended)
 
-### **Skills & Tools**
+## Getting Started
 
-<p align="left">
-    <img src="https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
-    <img src="https://img.shields.io/badge/-Vim-019733?style=flat-square&logo=vim&logoColor=white" alt="Vim" />
-    <img src="https://img.shields.io/badge/-VSCode-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white" alt="VS Code" />
-    <img src="https://img.shields.io/badge/-C/C++-00599C?style=flat-square&logo=c&logoColor=white" alt="C/C++" />
-    <img src="https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
-    <img src="https://img.shields.io/badge/-PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch" />
-    <img src="https://img.shields.io/badge/-PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-</p>
+1. Install dependencies:
+```bash
+corepack enable
+pnpm install
+```
 
-### 💬 **Feel free to ask me about:**
-- 🎶 Music
-- ✈️ Traveling
-- 🤖 AI & Data Science
+2. Run the development server:
+```bash
+pnpm dev
+```
+Open http://localhost:3000 in your browser.
 
-### ⚡ **Fun Fact:**
-When you call my name, the first word is also the first word of my country, **Viet** (Nam)! I take pride in my beautiful country, and I am dedicated to contributing to its development through technology and innovation.
+## Available Scripts
+- `pnpm dev`: Start Next.js in development mode
+- `pnpm build`: Build the production bundle
+- `pnpm start`: Start the production server (after build)
+- `pnpm lint`: Run Next.js lint (build ignores are enabled in `next.config.mjs`)
 
----
+## Tech Stack
+- Next.js 14, React 18
+- Tailwind CSS 4
+- Radix UI + shadcn-inspired components
+- Vercel Analytics (optional)
 
-### 📈 **GitHub Stats**
+## Project Structure
+- `app/`: App Router pages and layout
+- `components/`: UI components and sections
+- `public/`: Static assets
+- `styles/`: Global styles
 
-![Viet's GitHub Stats](https://github-readme-stats.vercel.app/api?username=vietnqw&show_icons=true&theme=transparent)
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=vietnqw&show_icons=true&theme=transparent)
+## Environment Variables
+No mandatory env vars for local dev.
 
----
+## Deployment
+The app is ready for Vercel:
+- Push to GitHub and import on Vercel
+- Or build and run locally:
+```bash
+pnpm build
+pnpm start
+```
 
-### 📫 **How to reach me:**
-
-<p align="left">
-    <a href="https://github.com/vietnqw"><img src="https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" /></a>
-    <a href="https://www.linkedin.com/in/ngo-quang-viet"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-</p>
+## License
+MIT

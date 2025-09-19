@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -10,8 +11,8 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/vietnqw.github.io' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/vietnqw.github.io' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '' : '',
 }
 
 export default nextConfig

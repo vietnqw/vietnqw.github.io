@@ -9,6 +9,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  basePath: "/vietnqw.github.io",
+  output: "export",
 }
 
 export default nextConfig

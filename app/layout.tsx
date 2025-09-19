@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Suspense } from "react"
 import "./globals.css"
@@ -43,7 +42,6 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
             {children}
           </ThemeProvider>
-          <Analytics />
         </Suspense>
       </body>
     </html>

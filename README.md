@@ -4,19 +4,44 @@ This is a Next.js project bootstrapped with `create-next-app`.
 
 ## Getting Started
 
-First, install the dependencies:
+### Prerequisites
+
+- Node.js 18 or newer (Node 20/22 is fine)
+- pnpm available via Corepack (recommended)
+
+Enable pnpm with Corepack (one-time):
+
+```bash
+corepack enable
+corepack prepare pnpm@latest --activate
+```
+
+Install dependencies:
 
 ```bash
 pnpm install
 ```
 
-Then, run the development server:
+If you see a message about "Ignored build scripts", approve them once:
+
+```bash
+pnpm approve-builds
+```
+
+Run the development server:
 
 ```bash
 pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+Alternatively, you can use npm if you prefer:
+
+```bash
+npm install
+npm run dev
+```
 
 ## Deployment
 

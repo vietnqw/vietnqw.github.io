@@ -4,6 +4,7 @@ import type React from "react"
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { GradientButton } from "@/components/ui/gradient-button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Github, Linkedin, Mail, Twitter, Send, MapPin, Clock } from "lucide-react"
@@ -81,7 +82,8 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="space-y-12">
+          {/* Contact Form */}
           <div className="animate-on-scroll">
             <Card className="p-8 glass border-primary/20 hover-glow">
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -135,15 +137,7 @@ export function ContactSection() {
                   />
                 </div>
 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting || isSubmitted}
-                  className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 hover-lift ${
-                    isSubmitted
-                      ? "bg-green-500 hover:bg-green-500 text-white"
-                      : "bg-gradient-to-r from-primary via-primary to-secondary hover:from-primary/90 hover:via-primary/90 hover:to-secondary/90"
-                  }`}
-                >
+                <GradientButton type="submit" disabled={isSubmitting || isSubmitted} className="w-full">
                   {isSubmitting ? (
                     <div className="flex items-center justify-center gap-2">
                       <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -162,7 +156,7 @@ export function ContactSection() {
                       Send Message
                     </div>
                   )}
-                </Button>
+                </GradientButton>
 
                 {isSubmitted && (
                   <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-sm text-center animate-fade-in">
@@ -172,9 +166,11 @@ export function ContactSection() {
               </form>
             </Card>
           </div>
-          <div className="mt-16 text-center animate-on-scroll">
-            <h4 className="font-space-grotesk font-semibold mb-6 text-sm uppercase tracking-wider">
-              Or connect with me on
+
+          {/* Social Links */}
+          <div className="text-center animate-on-scroll animate-delay-200">
+            <h4 className="font-space-grotesk font-semibold mb-4 text-sm uppercase tracking-wider">
+              Or Connect With Me On
             </h4>
             <div className="flex justify-center gap-4">
               {socialLinks.map((link, index) => (
@@ -183,7 +179,6 @@ export function ContactSection() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={link.name}
                   className={`p-3 rounded-xl glass border border-primary/10 text-muted-foreground transition-all duration-300 hover:scale-105 hover:border-primary/30 hover-lift ${link.color}`}
                 >
                   {link.icon}

@@ -16,7 +16,7 @@ export function Footer() {
 
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center space-y-8">
-          <p className="text-sm text-muted-foreground">© 2025 Viet. Built with React & Next.js</p>
+          <p className="text-sm text-muted-foreground">© 2025 Việt • Built with React & Next.js</p>
         </div>
       </div>
     </footer>

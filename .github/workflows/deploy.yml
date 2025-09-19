@@ -57,3 +57,6 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./out
         enable_jekyll: false
+        keep_files: false
+        force_orphan: true
+        cname: vietngoquang.com

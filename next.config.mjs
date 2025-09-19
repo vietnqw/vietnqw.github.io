@@ -8,8 +8,10 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
-  },
-  output: "export",
+  },dd
+  trailingSlash: true,
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/vietnqw.github.io' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/vietnqw.github.io' : '',
 }
 
 export default nextConfig

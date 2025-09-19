@@ -1,0 +1,36 @@
+{
+  "avatarInitial": "V",
+  "bio": "I'm a Computer Science graduate and AI enthusiast. I love building intelligent systems, experimenting with new web technologies, and turning ideas into real-world projects.",
+  "funFact": {
+    "text": "I once deployed a full app in under 24 hours and it's still running in production today!"
+  },
+  "keyTraits": ["Problem Solver", "Quick Learner", "Team Player"],
+  "journey": {
+    "milestones": [
+      {
+        "year": "2024",
+        "title": "AI Engineer",
+        "description": "Started building intelligent systems and exploring machine learning",
+        "icon": "Zap"
+      },
+      {
+        "year": "2023",
+        "title": "Computer Science Graduate",
+        "description": "Completed degree with focus on AI and software engineering",
+        "icon": "Calendar"
+      },
+      {
+        "year": "2022",
+        "title": "First Full-Stack App",
+        "description": "Deployed my first production application in under 24 hours",
+        "icon": "Coffee"
+      },
+      {
+        "year": "2021",
+        "title": "GitHub Student Pack",
+        "description": "Started my journey in open source development",
+        "icon": "MapPin"
+      }
+    ]
+  }
+}

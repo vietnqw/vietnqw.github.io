@@ -6,83 +6,9 @@ import { Button } from "@/components/ui/button"
 import { GradientButton } from "@/components/ui/gradient-button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github, Star, Filter } from "lucide-react"
+import content from "@/data/projects.json"
 
-const projects = [
-  {
-    id: 1,
-    title: "AI Chat Assistant",
-    description: "Intelligent chatbot powered by OpenAI GPT with context awareness and memory",
-    image: "/ai-chatbot-interface-with-modern-dark-ui.jpg",
-    category: "AI",
-    featured: true,
-    tech: ["Python", "OpenAI API", "FastAPI", "React"],
-    liveUrl: "#",
-    githubUrl: "#",
-    status: "Live",
-  },
-  {
-    id: 2,
-    title: "Task Management Dashboard",
-    description: "Full-stack productivity app with real-time collaboration and analytics",
-    image: "/modern-task-management-dashboard-with-dark-theme.jpg",
-    category: "Web",
-    featured: true,
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind"],
-    liveUrl: "#",
-    githubUrl: "#",
-    status: "Live",
-  },
-  {
-    id: 3,
-    title: "ML Image Classifier",
-    description: "Computer vision model for real-time object detection and classification",
-    image: "/machine-learning-image-classification-interface.jpg",
-    category: "AI",
-    featured: false,
-    tech: ["TensorFlow", "Python", "OpenCV", "Flask"],
-    liveUrl: "#",
-    githubUrl: "#",
-    status: "Beta",
-  },
-  {
-    id: 4,
-    title: "Crypto Portfolio Tracker",
-    description: "Real-time cryptocurrency portfolio tracking with advanced analytics",
-    image: "/cryptocurrency-portfolio-dashboard-with-charts.jpg",
-    category: "Web",
-    featured: false,
-    tech: ["React", "Node.js", "MongoDB", "Chart.js"],
-    liveUrl: "#",
-    githubUrl: "#",
-    status: "Live",
-  },
-  {
-    id: 5,
-    title: "Neural Network Visualizer",
-    description: "Interactive tool for visualizing and understanding neural network architectures",
-    image: "/neural-network-visualization-with-nodes-and-connec.jpg",
-    category: "Experiments",
-    featured: false,
-    tech: ["D3.js", "Python", "TensorFlow", "WebGL"],
-    liveUrl: "#",
-    githubUrl: "#",
-    status: "Demo",
-  },
-  {
-    id: 6,
-    title: "Weather Prediction API",
-    description: "Machine learning API for accurate weather forecasting using historical data",
-    image: "/weather-prediction-interface-with-graphs-and-maps.jpg",
-    category: "AI",
-    featured: false,
-    tech: ["Python", "Scikit-learn", "FastAPI", "Docker"],
-    liveUrl: "#",
-    githubUrl: "#",
-    status: "Live",
-  },
-]
-
-const categories = ["All", "AI", "Web", "Experiments"]
+const { projects, categories } = content
 
 const statusColors = {
   Live: "bg-green-500/20 text-green-400 border-green-500/30",
@@ -94,7 +20,9 @@ export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState("All")
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
 
-  const filteredProjects = projects.filter((project) => activeCategory === "All" || project.category === activeCategory)
+  const filteredProjects = projects.filter(
+    (project) => activeCategory === "All" || project.category === activeCategory
+  )
 
   const featuredProjects = filteredProjects.filter((project) => project.featured)
   const regularProjects = filteredProjects.filter((project) => !project.featured)
@@ -157,9 +85,9 @@ export function ProjectsSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <Badge
-                      className={`absolute top-4 right-4 transition-all duration-300 ${statusColors[project.status as keyof typeof statusColors]} ${
-                        hoveredProject === project.id ? "scale-110" : ""
-                      }`}
+                      className={`absolute top-4 right-4 transition-all duration-300 ${
+                        statusColors[project.status as keyof typeof statusColors]
+                      } ${hoveredProject === project.id ? "scale-110" : ""}`}
                     >
                       {project.status}
                     </Badge>
@@ -169,7 +97,9 @@ export function ProjectsSection() {
                     <h4 className="font-space-grotesk text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                       {project.title}
                     </h4>
-                    <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      {project.description}
+                    </p>
 
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tech.map((tech, techIndex) => (
@@ -226,8 +156,12 @@ export function ProjectsSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                     <Badge
-                      className={`absolute top-3 right-3 text-xs transition-all duration-300 ${statusColors[project.status as keyof typeof statusColors]} ${
-                        hoveredProject === project.id ? "animate-pulse scale-110" : ""
+                      className={`absolute top-3 right-3 text-xs transition-all duration-300 ${
+                        statusColors[project.status as keyof typeof statusColors]
+                      } ${
+                        hoveredProject === project.id
+                          ? "animate-pulse scale-110"
+                          : ""
                       }`}
                     >
                       {project.status}

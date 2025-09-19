@@ -4,10 +4,11 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { GradientButton } from "@/components/ui/gradient-button"
 import { ChevronDown } from "lucide-react"
+import content from "@/data/hero.json"
 
 export function HeroSection() {
   const [displayText, setDisplayText] = useState("")
-  const fullText = "AI Engineer | Tech Explorer | Creator"
+  const fullText = content.title
 
   useEffect(() => {
     let index = 0
@@ -21,7 +22,7 @@ export function HeroSection() {
     }, 100)
 
     return () => clearInterval(timer)
-  }, [])
+  }, [fullText])
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" })
@@ -77,7 +78,8 @@ export function HeroSection() {
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div className="mb-8">
           <h1 className="font-space-grotesk text-5xl md:text-7xl font-bold mb-6 text-balance animate-slide-in-up">
-            Hi, I'm <span className="text-primary animate-glow">Việt</span> 👋
+            Hi, I'm{" "}
+            <span className="text-primary animate-glow">{content.name}</span> 👋
           </h1>
 
           <div className="h-16 flex items-center justify-center animate-slide-in-up animate-delay-200">

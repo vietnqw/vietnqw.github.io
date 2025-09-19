@@ -1,0 +1,30 @@
+{
+  "socials": {
+    "links": [
+      {
+        "name": "GitHub",
+        "icon": "Github",
+        "url": "https://github.com/viet",
+        "color": "hover:text-gray-400"
+      },
+      {
+        "name": "LinkedIn",
+        "icon": "Linkedin",
+        "url": "https://linkedin.com/in/viet",
+        "color": "hover:text-blue-400"
+      },
+      {
+        "name": "Twitter",
+        "icon": "Twitter",
+        "url": "https://twitter.com/viet",
+        "color": "hover:text-sky-400"
+      },
+      {
+        "name": "Email",
+        "icon": "Mail",
+        "url": "mailto:viet@example.com",
+        "color": "hover:text-green-400"
+      }
+    ]
+  }
+}

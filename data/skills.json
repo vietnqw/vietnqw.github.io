@@ -1,0 +1,62 @@
+{
+  "skillCategories": [
+    {
+      "title": "Languages",
+      "icon": "Code2",
+      "skills": [
+        { "name": "Python", "level": "fluent", "icon": "🐍" },
+        { "name": "JavaScript", "level": "fluent", "icon": "⚡" },
+        { "name": "TypeScript", "level": "proficient", "icon": "🔷" },
+        { "name": "SQL", "level": "proficient", "icon": "🗃️" }
+      ]
+    },
+    {
+      "title": "Frameworks",
+      "icon": "Layers",
+      "skills": [
+        { "name": "React", "level": "fluent", "icon": "⚛️" },
+        { "name": "Next.js", "level": "proficient", "icon": "▲" },
+        { "name": "Node.js", "level": "proficient", "icon": "🟢" },
+        { "name": "FastAPI", "level": "exploring", "icon": "🚀" }
+      ]
+    },
+    {
+      "title": "AI & ML",
+      "icon": "Brain",
+      "skills": [
+        { "name": "TensorFlow", "level": "proficient", "icon": "🧠" },
+        { "name": "PyTorch", "level": "exploring", "icon": "🔥" },
+        { "name": "OpenAI API", "level": "fluent", "icon": "🤖" },
+        { "name": "Hugging Face", "level": "proficient", "icon": "🤗" }
+      ]
+    },
+    {
+      "title": "Tools & DevOps",
+      "icon": "Terminal",
+      "skills": [
+        { "name": "Git", "level": "fluent", "icon": "📝" },
+        { "name": "Docker", "level": "exploring", "icon": "🐳" },
+        { "name": "VSCode", "level": "fluent", "icon": "💻" },
+        { "name": "Vercel", "level": "proficient", "icon": "▲" }
+      ]
+    }
+  ],
+  "additionalSkills": {
+    "skills": [
+      "Tailwind CSS",
+      "MongoDB",
+      "PostgreSQL",
+      "Redis",
+      "AWS",
+      "Firebase",
+      "Figma",
+      "Jupyter",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "REST APIs",
+      "GraphQL",
+      "Webpack"
+    ]
+  }
+}

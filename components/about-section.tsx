@@ -4,33 +4,14 @@ import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin, Coffee, Zap } from "lucide-react"
+import content from "@/data/about.json"
 
-const milestones = [
-  {
-    year: "2024",
-    title: "AI Engineer",
-    description: "Started building intelligent systems and exploring machine learning",
-    icon: <Zap className="w-4 h-4" />,
-  },
-  {
-    year: "2023",
-    title: "Computer Science Graduate",
-    description: "Completed degree with focus on AI and software engineering",
-    icon: <Calendar className="w-4 h-4" />,
-  },
-  {
-    year: "2022",
-    title: "First Full-Stack App",
-    description: "Deployed my first production application in under 24 hours",
-    icon: <Coffee className="w-4 h-4" />,
-  },
-  {
-    year: "2021",
-    title: "GitHub Student Pack",
-    description: "Started my journey in open source development",
-    icon: <MapPin className="w-4 h-4" />,
-  },
-]
+const icons: { [key: string]: React.ReactNode } = {
+  Zap: <Zap className="w-4 h-4" />,
+  Calendar: <Calendar className="w-4 h-4" />,
+  Coffee: <Coffee className="w-4 h-4" />,
+  MapPin: <MapPin className="w-4 h-4" />,
+}
 
 export function AboutSection() {
   const [hoveredMilestone, setHoveredMilestone] = useState<number | null>(null)
@@ -42,7 +23,9 @@ export function AboutSection() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="font-space-grotesk text-4xl md:text-5xl font-bold mb-6 text-balance">About Me</h2>
+          <h2 className="font-space-grotesk text-4xl md:text-5xl font-bold mb-6 text-balance">
+            About Me
+          </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
         </div>
 
@@ -53,7 +36,7 @@ export function AboutSection() {
               {/* Avatar placeholder with glow effect */}
               <div className="w-48 h-48 mx-auto lg:mx-0 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center animate-glow animate-pulse-glow">
                 <div className="w-44 h-44 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-6xl font-bold text-primary-foreground">
-                  V
+                  {content.avatarInitial}
                 </div>
               </div>
 
@@ -67,22 +50,21 @@ export function AboutSection() {
 
             <div className="space-y-6">
               <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm a Computer Science graduate and AI enthusiast. I love building intelligent systems, experimenting
-                with new web technologies, and turning ideas into real-world projects.
+                {content.bio}
               </p>
 
               <Card className="glass p-6 border-primary/20 hover-lift hover-glow">
                 <div className="flex items-center gap-3 mb-3">
                   <Coffee className="w-5 h-5 text-primary" />
-                  <h3 className="font-space-grotesk font-semibold">Fun Fact</h3>
+                  <h3 className="font-space-grotesk font-semibold">
+                    Fun Fact
+                  </h3>
                 </div>
-                <p className="text-muted-foreground">
-                  I once deployed a full app in under 24 hours and it's still running in production today!
-                </p>
+                <p className="text-muted-foreground">{content.funFact.text}</p>
               </Card>
 
               <div className="flex flex-wrap gap-2">
-                {["Problem Solver", "Quick Learner", "Team Player"].map((trait, index) => (
+                {content.keyTraits.map((trait, index) => (
                   <Badge
                     key={trait}
                     variant="secondary"
@@ -98,10 +80,12 @@ export function AboutSection() {
 
           {/* Timeline Section */}
           <div className="space-y-6 animate-on-scroll animate-delay-200">
-            <h3 className="font-space-grotesk text-2xl font-bold mb-8 text-center lg:text-left">My Journey</h3>
+            <h3 className="font-space-grotesk text-2xl font-bold mb-8 text-center lg:text-left">
+              My Journey
+            </h3>
 
             <div className="space-y-4">
-              {milestones.map((milestone, index) => (
+              {content.journey.milestones.map((milestone, index) => (
                 <Card
                   key={index}
                   className={`p-6 cursor-pointer transition-all duration-300 border-l-4 hover-lift animate-slide-in-right ${
@@ -121,7 +105,7 @@ export function AboutSection() {
                           : "bg-muted"
                       }`}
                     >
-                      {milestone.icon}
+                      {icons[milestone.icon]}
                     </div>
 
                     <div className="flex-1">
@@ -129,9 +113,13 @@ export function AboutSection() {
                         <Badge variant="outline" className="text-xs font-mono">
                           {milestone.year}
                         </Badge>
-                        <h4 className="font-space-grotesk font-semibold">{milestone.title}</h4>
+                        <h4 className="font-space-grotesk font-semibold">
+                          {milestone.title}
+                        </h4>
                       </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{milestone.description}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {milestone.description}
+                      </p>
                     </div>
                   </div>
                 </Card>

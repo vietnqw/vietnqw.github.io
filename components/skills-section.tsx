@@ -4,49 +4,16 @@ import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Code2, Terminal, Layers, Brain } from "lucide-react"
+import content from "@/data/skills.json"
 
-const skillCategories = [
-  {
-    title: "Languages",
-    icon: <Code2 className="w-6 h-6" />,
-    skills: [
-      { name: "Python", level: "fluent", icon: "🐍" },
-      { name: "JavaScript", level: "fluent", icon: "⚡" },
-      { name: "TypeScript", level: "proficient", icon: "🔷" },
-      { name: "SQL", level: "proficient", icon: "🗃️" },
-    ],
-  },
-  {
-    title: "Frameworks",
-    icon: <Layers className="w-6 h-6" />,
-    skills: [
-      { name: "React", level: "fluent", icon: "⚛️" },
-      { name: "Next.js", level: "proficient", icon: "▲" },
-      { name: "Node.js", level: "proficient", icon: "🟢" },
-      { name: "FastAPI", level: "exploring", icon: "🚀" },
-    ],
-  },
-  {
-    title: "AI & ML",
-    icon: <Brain className="w-6 h-6" />,
-    skills: [
-      { name: "TensorFlow", level: "proficient", icon: "🧠" },
-      { name: "PyTorch", level: "exploring", icon: "🔥" },
-      { name: "OpenAI API", level: "fluent", icon: "🤖" },
-      { name: "Hugging Face", level: "proficient", icon: "🤗" },
-    ],
-  },
-  {
-    title: "Tools & DevOps",
-    icon: <Terminal className="w-6 h-6" />,
-    skills: [
-      { name: "Git", level: "fluent", icon: "📝" },
-      { name: "Docker", level: "exploring", icon: "🐳" },
-      { name: "VSCode", level: "fluent", icon: "💻" },
-      { name: "Vercel", level: "proficient", icon: "▲" },
-    ],
-  },
-]
+const { skillCategories } = content
+
+const icons: { [key: string]: React.ReactNode } = {
+  Code2: <Code2 className="w-6 h-6" />,
+  Layers: <Layers className="w-6 h-6" />,
+  Brain: <Brain className="w-6 h-6" />,
+  Terminal: <Terminal className="w-6 h-6" />,
+}
 
 const levelColors = {
   fluent: "bg-green-500/20 text-green-400 border-green-500/30",
@@ -72,7 +39,9 @@ export function SkillsSection() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="font-space-grotesk text-4xl md:text-5xl font-bold mb-6 text-balance">Skills & Expertise</h2>
+          <h2 className="font-space-grotesk text-4xl md:text-5xl font-bold mb-6 text-balance">
+            Skills & Expertise
+          </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4" />
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Technologies and tools I use to bring ideas to life
@@ -87,8 +56,12 @@ export function SkillsSection() {
               style={{ animationDelay: `${categoryIndex * 0.1}s` }}
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-lg bg-primary/10 text-primary animate-pulse-glow">{category.icon}</div>
-                <h3 className="font-space-grotesk font-bold text-lg">{category.title}</h3>
+                <div className="p-2 rounded-lg bg-primary/10 text-primary animate-pulse-glow">
+                  {icons[category.icon]}
+                </div>
+                <h3 className="font-space-grotesk font-bold text-lg">
+                  {category.title}
+                </h3>
               </div>
 
               <div className="space-y-4">
@@ -96,7 +69,9 @@ export function SkillsSection() {
                   <div
                     key={skillIndex}
                     className="group cursor-pointer"
-                    onMouseEnter={() => setHoveredSkill(`${categoryIndex}-${skillIndex}`)}
+                    onMouseEnter={() =>
+                      setHoveredSkill(`${categoryIndex}-${skillIndex}`)
+                    }
                     onMouseLeave={() => setHoveredSkill(null)}
                   >
                     <div className="flex items-center justify-between mb-2">
@@ -104,7 +79,9 @@ export function SkillsSection() {
                         <span className="text-lg transition-transform duration-300 group-hover:scale-125">
                           {skill.icon}
                         </span>
-                        <span className="font-medium group-hover:text-primary transition-colors">{skill.name}</span>
+                        <span className="font-medium group-hover:text-primary transition-colors">
+                          {skill.name}
+                        </span>
                       </div>
                     </div>
 
@@ -115,15 +92,23 @@ export function SkillsSection() {
                             skill.level === "fluent"
                               ? "from-green-500 to-green-400 w-full"
                               : skill.level === "proficient"
-                                ? "from-blue-500 to-blue-400 w-3/4"
-                                : "from-purple-500 to-purple-400 w-1/2"
-                          } ${hoveredSkill === `${categoryIndex}-${skillIndex}` ? "animate-shimmer" : ""}`}
+                              ? "from-blue-500 to-blue-400 w-3/4"
+                              : "from-purple-500 to-purple-400 w-1/2"
+                          } ${
+                            hoveredSkill === `${categoryIndex}-${skillIndex}`
+                              ? "animate-shimmer"
+                              : ""
+                          }`}
                         />
                       </div>
                       <Badge
                         variant="outline"
-                        className={`text-xs transition-all duration-300 ${levelColors[skill.level as keyof typeof levelColors]} ${
-                          hoveredSkill === `${categoryIndex}-${skillIndex}` ? "scale-110" : ""
+                        className={`text-xs transition-all duration-300 ${
+                          levelColors[skill.level as keyof typeof levelColors]
+                        } ${
+                          hoveredSkill === `${categoryIndex}-${skillIndex}`
+                            ? "scale-110"
+                            : ""
                         }`}
                       >
                         {levelLabels[skill.level as keyof typeof levelLabels]}
@@ -138,24 +123,11 @@ export function SkillsSection() {
 
         {/* Additional Skills Cloud */}
         <div className="mt-16 text-center animate-on-scroll">
-          <h3 className="font-space-grotesk text-2xl font-bold mb-8">Also Familiar With</h3>
+          <h3 className="font-space-grotesk text-2xl font-bold mb-8">
+            Also Familiar With
+          </h3>
           <div className="flex flex-wrap justify-center gap-3">
-            {[
-              "Tailwind CSS",
-              "MongoDB",
-              "PostgreSQL",
-              "Redis",
-              "AWS",
-              "Firebase",
-              "Figma",
-              "Jupyter",
-              "Pandas",
-              "NumPy",
-              "Scikit-learn",
-              "REST APIs",
-              "GraphQL",
-              "Webpack",
-            ].map((tech, index) => (
+            {content.additionalSkills.skills.map((tech, index) => (
               <Badge
                 key={index}
                 variant="secondary"

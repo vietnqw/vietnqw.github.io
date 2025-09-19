@@ -3,38 +3,33 @@
 import type React from "react"
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { GradientButton } from "@/components/ui/gradient-button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Github, Linkedin, Mail, Twitter, Send, MapPin, Clock } from "lucide-react"
+import { Github, Linkedin, Mail, Twitter, Send } from "lucide-react"
+import content from "@/data/contact.json"
 
-const socialLinks = [
-  {
-    name: "GitHub",
-    icon: <Github className="w-5 h-5" />,
-    url: "https://github.com/viet",
-    color: "hover:text-gray-400",
-  },
-  {
-    name: "LinkedIn",
-    icon: <Linkedin className="w-5 h-5" />,
-    url: "https://linkedin.com/in/viet",
-    color: "hover:text-blue-400",
-  },
-  {
-    name: "Twitter",
-    icon: <Twitter className="w-5 h-5" />,
-    url: "https://twitter.com/viet",
-    color: "hover:text-sky-400",
-  },
-  {
-    name: "Email",
-    icon: <Mail className="w-5 h-5" />,
-    url: "mailto:viet@example.com",
-    color: "hover:text-green-400",
-  },
-]
+const { socialLinks } = {
+  socialLinks: content.socials.links.map((link) => ({
+    ...link,
+    icon: getIconComponent(link.icon),
+  })),
+}
+
+function getIconComponent(iconName: string) {
+  switch (iconName) {
+    case "Github":
+      return <Github className="w-5 h-5" />
+    case "Linkedin":
+      return <Linkedin className="w-5 h-5" />
+    case "Twitter":
+      return <Twitter className="w-5 h-5" />
+    case "Mail":
+      return <Mail className="w-5 h-5" />
+    default:
+      return null
+  }
+}
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -45,7 +40,9 @@ export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -75,10 +72,13 @@ export function ContactSection() {
 
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="font-space-grotesk text-4xl md:text-5xl font-bold mb-6 text-balance">Let's Connect</h2>
+          <h2 className="font-space-grotesk text-4xl md:text-5xl font-bold mb-6 text-balance">
+            Let's Connect
+          </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6" />
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            Have a project in mind or just want to chat? I'd love to hear from you.
+            Have a project in mind or just want to chat? I'd love to hear from
+            you.
           </p>
         </div>
 
@@ -89,7 +89,10 @@ export function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Name
                     </label>
                     <Input
@@ -105,7 +108,10 @@ export function ContactSection() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-2"
+                    >
                       Email
                     </label>
                     <Input
@@ -122,7 +128,10 @@ export function ContactSection() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Message
                   </label>
                   <Textarea
@@ -137,7 +146,11 @@ export function ContactSection() {
                   />
                 </div>
 
-                <GradientButton type="submit" disabled={isSubmitting || isSubmitted} className="w-full">
+                <GradientButton
+                  type="submit"
+                  disabled={isSubmitting || isSubmitted}
+                  className="w-full"
+                >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center gap-2">
                       <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />

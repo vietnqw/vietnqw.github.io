@@ -73,11 +73,11 @@ export function ContactSection() {
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="font-space-grotesk text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Let's Connect
+            Let&apos;s Connect
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6" />
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            Have a project in mind or just want to chat? I'd love to hear from
+            Have a project in mind or just want to chat? I&apos;d love to hear from
             you.
           </p>
         </div>
@@ -158,7 +158,7 @@ export function ContactSection() {
                     </div>
                   ) : isSubmitted ? (
                     <div className="flex items-center justify-center gap-2">
-                      <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
                         <div className="w-2 h-2 bg-green-500 rounded-full" />
                       </div>
                       Message Sent!
@@ -173,7 +173,7 @@ export function ContactSection() {
 
                 {isSubmitted && (
                   <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-sm text-center animate-fade-in">
-                    Thanks for reaching out! I'll get back to you soon.
+                    Thanks for reaching out! I&apos;ll get back to you soon.
                   </div>
                 )}
               </form>

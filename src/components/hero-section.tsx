@@ -78,7 +78,7 @@ export function HeroSection() {
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div className="mb-8">
           <h1 className="font-space-grotesk text-5xl md:text-7xl font-bold mb-6 text-balance animate-slide-in-up">
-            Hi, I'm{" "}
+            Hi, I&apos;m{" "}
             <span className="text-primary animate-glow">{content.name}</span> 👋
           </h1>
 

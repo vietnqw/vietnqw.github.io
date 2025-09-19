@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { GradientButton } from "@/components/ui/gradient-button"
@@ -61,7 +62,7 @@ export function ProjectsSection() {
 
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((category, index) => {
+          {categories.map((category) => {
             const isSelected =
               category === "All"
                 ? isAllActive
@@ -96,7 +97,7 @@ export function ProjectsSection() {
               Featured Projects
             </h3>
             <div className="grid lg:grid-cols-2 gap-8">
-              {featuredProjects.map((project, index) => (
+              {featuredProjects.map((project) => (
                 <Card
                   key={project.id}
                   className="group overflow-hidden glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 hover-lift"
@@ -104,9 +105,11 @@ export function ProjectsSection() {
                   onMouseLeave={() => setHoveredProject(null)}
                 >
                   <div className="relative overflow-hidden">
-                    <img
+                    <Image
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
+                      width={500}
+                      height={300}
                       className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -165,7 +168,7 @@ export function ProjectsSection() {
           <div>
             <h3 className="font-space-grotesk text-2xl font-bold mb-8">All Projects</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {regularProjects.map((project, index) => (
+              {regularProjects.map((project) => (
                 <Card
                   key={project.id}
                   className="group overflow-hidden glass border-primary/10 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 hover-lift"
@@ -173,9 +176,11 @@ export function ProjectsSection() {
                   onMouseLeave={() => setHoveredProject(null)}
                 >
                   <div className="relative overflow-hidden">
-                    <img
+                    <Image
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
+                      width={400}
+                      height={250}
                       className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />

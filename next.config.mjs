@@ -8,7 +8,7 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
-  },dd
+  },
   trailingSlash: true,
   assetPrefix: process.env.NODE_ENV === 'production' ? '/vietnqw.github.io' : '',
   basePath: process.env.NODE_ENV === 'production' ? '/vietnqw.github.io' : '',

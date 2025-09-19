@@ -10,18 +10,36 @@ import content from "@/data/projects.json"
 
 const { projects, categories } = content
 
-const statusColors = {
+const statusColors: { [key: string]: string } = {
   Live: "bg-green-500/20 text-green-400 border-green-500/30",
   Beta: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
   Demo: "bg-blue-500/20 text-blue-400 border-blue-500/30",
 }
 
 export function ProjectsSection() {
-  const [activeCategory, setActiveCategory] = useState("All")
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
 
+  const isAllActive = selectedCategories.length === 0
+
+  const handleAllClick = () => {
+    // Selecting "All" always clears other selections and cannot be de-selected directly
+    setSelectedCategories([])
+  }
+
+  const handleCategoryToggle = (category: string) => {
+    setSelectedCategories((prev) => {
+      if (prev.includes(category)) {
+        // De-select the category; if none left, "All" becomes active implicitly
+        return prev.filter((c) => c !== category)
+      }
+      // Select the category and automatically de-select "All"
+      return [...prev, category]
+    })
+  }
+
   const filteredProjects = projects.filter(
-    (project) => activeCategory === "All" || project.category === activeCategory
+    (project) => isAllActive || selectedCategories.includes(project.category)
   )
 
   const featuredProjects = filteredProjects.filter((project) => project.featured)
@@ -33,7 +51,7 @@ export function ProjectsSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/5 to-transparent" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16 animate-on-scroll">
+        <div className="text-center mb-16">
           <h2 className="font-space-grotesk text-4xl md:text-5xl font-bold mb-6 text-balance">Featured Projects</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4" />
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -42,29 +60,38 @@ export function ProjectsSection() {
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12 animate-on-scroll">
-          {categories.map((category, index) => (
-            <Button
-              key={category}
-              variant={activeCategory === category ? "default" : "outline"}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full transition-all duration-300 animate-scale-in ${
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-                  : "border-primary/30 text-primary hover:bg-primary/10 hover-glow"
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <Filter className="w-4 h-4 mr-2" />
-              {category}
-            </Button>
-          ))}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category, index) => {
+            const isSelected =
+              category === "All"
+                ? isAllActive
+                : selectedCategories.includes(category)
+            const handleClick = () => {
+              if (category === "All") return handleAllClick()
+              return handleCategoryToggle(category)
+            }
+            return (
+              <Button
+                key={category}
+                variant={isSelected ? "default" : "outline"}
+                onClick={handleClick}
+                className={`px-6 py-2 rounded-full transition-all duration-300 ${
+                  isSelected
+                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
+                    : "border-primary/30 text-primary hover:bg-primary/10 hover-glow"
+                }`}
+              >
+                <Filter className="w-4 h-4 mr-2" />
+                {category}
+              </Button>
+            )
+          })}
         </div>
 
         {/* Featured Projects */}
         {featuredProjects.length > 0 && (
           <div className="mb-16">
-            <h3 className="font-space-grotesk text-2xl font-bold mb-8 flex items-center gap-2 animate-on-scroll">
+            <h3 className="font-space-grotesk text-2xl font-bold mb-8 flex items-center gap-2">
               <Star className="w-6 h-6 text-yellow-400" />
               Featured Projects
             </h3>
@@ -72,8 +99,7 @@ export function ProjectsSection() {
               {featuredProjects.map((project, index) => (
                 <Card
                   key={project.id}
-                  className="group overflow-hidden glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 hover-lift animate-on-scroll"
-                  style={{ animationDelay: `${index * 0.2}s` }}
+                  className="group overflow-hidden glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 hover-lift"
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
                 >
@@ -107,7 +133,6 @@ export function ProjectsSection() {
                           key={techIndex}
                           variant="secondary"
                           className="text-xs transition-all duration-300 hover:scale-105"
-                          style={{ animationDelay: `${techIndex * 0.05}s` }}
                         >
                           {tech}
                         </Badge>
@@ -138,13 +163,12 @@ export function ProjectsSection() {
         {/* Regular Projects Grid */}
         {regularProjects.length > 0 && (
           <div>
-            <h3 className="font-space-grotesk text-2xl font-bold mb-8 animate-on-scroll">All Projects</h3>
+            <h3 className="font-space-grotesk text-2xl font-bold mb-8">All Projects</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {regularProjects.map((project, index) => (
                 <Card
                   key={project.id}
-                  className="group overflow-hidden glass border-primary/10 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 hover-lift animate-on-scroll"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="group overflow-hidden glass border-primary/10 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 hover-lift"
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
                 >
@@ -214,7 +238,7 @@ export function ProjectsSection() {
         )}
 
         {/* Call to Action */}
-        <div className="text-center mt-16 animate-on-scroll">
+        <div className="text-center mt-16">
           <p className="text-muted-foreground mb-6">Want to see more of my work?</p>
           <Button
             size="lg"

@@ -1,34 +1,33 @@
 {
-  "avatarInitial": "V",
-  "bio": "A creative and problem-solving software engineer passionate about professional and personal growth. I thrive on solving complex challenges, continuously learning, and contributing to innovative and collaborative projects that drive meaningful advancements in Information Technology.",
+  "bio": "Fueled by pure water and a love for all things tech, I'm a software engineer who enjoys building cool stuff and learning new tricks along the way. I get a kick out of solving tricky problems, collaborating with awesome people, and contributing to projects that actually matter. If you need someone to turn ideas into code (and maybe a few puns), I'm your person!",
   "funFact": {
-    "text": "I once deployed a full app in under 24 hours and it's still running in production today!"
+    "text": "In Linux, cat prints the contents of a file. In my house, cat prints itself across my keyboard, usually while I’m deploying to production."
   },
-  "keyTraits": ["Teamwork", "Logical Thinking", "Critical Thinking"],
+  "keyTraits": ["Curiosity", "Teamwork", "Logical Thinking", "Critical Thinking"],
   "journey": {
     "milestones": [
       {
         "year": "2024",
         "title": "AI Engineer at VMO Holdings",
-        "description": "Provided AI solutions for various services, including using latest LLM and advanced techniques to meet customer needs.",
+        "description": "Built AI solutions, wrangled LLMs, and convinced computers to do my bidding (until they unionize). Moonlighted as a data scientist: tamed wild datasets, ran experiments, and tried to make sense of charts that looked like modern art. Survived endless meetings using only my wits and a questionable number of memes.",
         "icon": "Building2"
       },
       {
         "year": "2023",
         "title": "Natural Language Processing Engineer at The Institute of Big Data (VinBigdata)",
-        "description": "Conducted research in information retrieval to enhance search algorithms, improving search functionality.",
+        "description": "Taught computers to play 'Where’s Waldo?' with names and places—aka, built Named Entity Recognition (NER) systems. Discovered that getting AI to spot Vietnamese names is harder than finding my own motivation on a Monday.",
         "icon": "Building2"
       },
       {
         "year": "2023",
         "title": "Lecturer at MindX Technology School",
-        "description": "Specialized in teaching programming courses to kids such as Scratch, Game Programming, and Python.",
+        "description": "Taught programming to kids, learned that debugging with 10-year-olds is both humbling and hilarious. Discovered that Python jokes are universally groan-worthy.",
         "icon": "BookOpen"
       },
       {
         "year": "2022",
         "title": "Teaching Assistant at Hanoi University of Science and Technology",
-        "description": "Supported instructors in delivering lectures for Database and Techniques of Programming courses at Hanoi University of Science and Technology.",
+        "description": "Helped students survive Database and Techniques of Programming courses. Became a professional at answering 'Will this be on the exam?' and navigating last-minute assignment panics.",
         "icon": "BookOpen"
       }
     ]
@@ -38,7 +37,7 @@
       "year": "2020 - 2025",
       "degree": "Bachelor of Engineering in Computer Engineering",
       "institution": "Hanoi University of Science and Technology",
-      "description": "Focused on software development, algorithms, and data structures. Completed a final year project on natural language processing."
+      "description": "Survived five years of all-nighters, code, and exams. Graduated with a degree and only minor emotional damage."
     }
   ]
 }

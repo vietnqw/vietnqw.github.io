@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
+import Image from "next/image"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -26,6 +27,22 @@ const icons: { [key: string]: React.ReactNode } = {
 
 export function AboutSection() {
   const [hoveredMilestone, setHoveredMilestone] = useState<number | null>(null)
+  const [profilePictureExists, setProfilePictureExists] = useState(false)
+
+  useEffect(() => {
+    const checkImage = async () => {
+      try {
+        const response = await fetch("/profile-picture.jpeg")
+        if (response.ok) {
+          setProfilePictureExists(true)
+        }
+      } catch (error) {
+        console.error("Failed to fetch profile picture:", error)
+      }
+    }
+
+    checkImage()
+  }, [])
 
   const fullJourney = useMemo(() => {
     const workExperience = content.journey.milestones.map((item) => ({
@@ -71,11 +88,21 @@ export function AboutSection() {
           <div className="grid lg:grid-cols-3 gap-12 items-center mb-24 animate-on-scroll">
             {/* Avatar */}
             <div className="lg:col-span-1">
-              <div className="relative w-48 h-48 mx-auto">
+              <div className="relative w-56 h-56 mx-auto">
                 <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center animate-glow animate-pulse-glow">
-                  <div className="w-44 h-44 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-6xl font-bold text-primary-foreground">
-                    {content.avatarInitial}
-                  </div>
+                  {profilePictureExists ? (
+                    <Image
+                      src="/profile-picture.jpeg"
+                      alt="Profile Picture"
+                      width={208}
+                      height={208}
+                      className="rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-52 h-52 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-6xl font-bold text-primary-foreground">
+                      V
+                    </div>
+                  )}
                 </div>
                 {/* Floating elements */}
                 <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/30 rounded-full animate-float" />
@@ -92,7 +119,7 @@ export function AboutSection() {
                 {content.bio}
               </p>
               <Card className="glass p-6 border-primary/20 hover-lift hover-glow">
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center gap-3 mb-0">
                   <Coffee className="w-5 h-5 text-primary" />
                   <h3 className="font-space-grotesk font-semibold">
                     Fun Fact

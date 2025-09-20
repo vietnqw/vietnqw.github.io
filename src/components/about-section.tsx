@@ -1,9 +1,17 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, MapPin, Coffee, Zap } from "lucide-react"
+import {
+  Calendar,
+  MapPin,
+  Coffee,
+  Zap,
+  GraduationCap,
+  Building2,
+  BookOpen,
+} from "lucide-react"
 import content from "@/data/about.json"
 
 const icons: { [key: string]: React.ReactNode } = {
@@ -11,13 +19,42 @@ const icons: { [key: string]: React.ReactNode } = {
   Calendar: <Calendar className="w-4 h-4" />,
   Coffee: <Coffee className="w-4 h-4" />,
   MapPin: <MapPin className="w-4 h-4" />,
+  GraduationCap: <GraduationCap className="w-4 h-4" />,
+  Building2: <Building2 className="w-4 h-4" />,
+  BookOpen: <BookOpen className="w-4 h-4" />,
 }
 
 export function AboutSection() {
   const [hoveredMilestone, setHoveredMilestone] = useState<number | null>(null)
 
+  const fullJourney = useMemo(() => {
+    const workExperience = content.journey.milestones.map((item) => ({
+      ...item,
+      type: "work",
+    }))
+
+    const educationHistory = (content.education || []).map((item) => ({
+      year: item.year,
+      title: item.degree,
+      description: `${item.institution} - ${item.description}`,
+      icon: "GraduationCap",
+      type: "education",
+    }))
+
+    const combined = [...workExperience, ...educationHistory]
+
+    // Sort by the starting year (descending)
+    combined.sort((a, b) => {
+      const yearA = parseInt(a.year.substring(0, 4), 10)
+      const yearB = parseInt(b.year.substring(0, 4), 10)
+      return yearB - yearA
+    })
+
+    return combined
+  }, [])
+
   return (
-    <section id="about" className="py-20 px-4 relative">
+    <section id="about" className="py-12 px-4 relative">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
 
@@ -29,30 +66,31 @@ export function AboutSection() {
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Profile Section */}
-          <div className="space-y-8 animate-on-scroll">
-            <div className="relative">
-              {/* Avatar placeholder with glow effect */}
-              <div className="w-48 h-48 mx-auto lg:mx-0 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center animate-glow animate-pulse-glow">
-                <div className="w-44 h-44 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-6xl font-bold text-primary-foreground">
-                  {content.avatarInitial}
+        <div>
+          {/* Restructured Profile Section */}
+          <div className="grid lg:grid-cols-3 gap-12 items-center mb-24 animate-on-scroll">
+            {/* Avatar */}
+            <div className="lg:col-span-1">
+              <div className="relative w-48 h-48 mx-auto">
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center animate-glow animate-pulse-glow">
+                  <div className="w-44 h-44 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-6xl font-bold text-primary-foreground">
+                    {content.avatarInitial}
+                  </div>
                 </div>
+                {/* Floating elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/30 rounded-full animate-float" />
+                <div
+                  className="absolute -bottom-4 -left-4 w-6 h-6 bg-secondary/30 rounded-full animate-float"
+                  style={{ animationDelay: "2s" }}
+                />
               </div>
-
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/30 rounded-full animate-float" />
-              <div
-                className="absolute -bottom-4 -left-4 w-6 h-6 bg-secondary/30 rounded-full animate-float"
-                style={{ animationDelay: "2s" }}
-              />
             </div>
 
-            <div className="space-y-6">
+            {/* Bio and Info */}
+            <div className="lg:col-span-2 space-y-6">
               <p className="text-lg leading-relaxed text-muted-foreground">
                 {content.bio}
               </p>
-
               <Card className="glass p-6 border-primary/20 hover-lift hover-glow">
                 <div className="flex items-center gap-3 mb-3">
                   <Coffee className="w-5 h-5 text-primary" />
@@ -62,7 +100,6 @@ export function AboutSection() {
                 </div>
                 <p className="text-muted-foreground">{content.funFact.text}</p>
               </Card>
-
               <div className="flex flex-wrap gap-2">
                 {content.keyTraits.map((trait, index) => (
                   <Badge
@@ -78,14 +115,17 @@ export function AboutSection() {
             </div>
           </div>
 
-          {/* Timeline Section */}
-          <div className="space-y-6 animate-on-scroll animate-delay-200">
-            <h3 className="font-space-grotesk text-2xl font-bold mb-8 text-center lg:text-left">
-              My Journey
-            </h3>
+          {/* Journey Section - Now displayed below the profile */}
+          <div className="animate-on-scroll animate-delay-200">
+            <div className="text-center mb-12">
+              <h3 className="font-space-grotesk text-3xl font-bold mb-4">
+                My Journey
+              </h3>
+              <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
+            </div>
 
-            <div className="space-y-4">
-              {content.journey.milestones.map((milestone, index) => (
+            <div className="max-w-3xl mx-auto space-y-4">
+              {fullJourney.map((milestone, index) => (
                 <Card
                   key={index}
                   className={`p-6 cursor-pointer transition-all duration-300 border-l-4 hover-lift animate-slide-in-right ${
@@ -110,7 +150,7 @@ export function AboutSection() {
 
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <Badge variant="outline" className="text-xs font-mono">
+                        <Badge variant="outline" className="text-sm font-mono">
                           {milestone.year}
                         </Badge>
                         <h4 className="font-space-grotesk font-semibold">

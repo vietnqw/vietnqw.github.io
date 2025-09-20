@@ -4,25 +4,25 @@
       {
         "name": "GitHub",
         "icon": "Github",
-        "url": "https://github.com/viet",
+        "url": "https://github.com/vietnqw",
         "color": "hover:text-gray-400"
       },
       {
         "name": "LinkedIn",
         "icon": "Linkedin",
-        "url": "https://linkedin.com/in/viet",
+        "url": "https://www.linkedin.com/in/ngo-quang-viet",
         "color": "hover:text-blue-400"
       },
       {
-        "name": "Twitter",
-        "icon": "Twitter",
-        "url": "https://twitter.com/viet",
-        "color": "hover:text-sky-400"
+        "name": "Facebook",
+        "icon": "Facebook",
+        "url": "https://www.facebook.com/dung.viet.77985",
+        "color": "hover:text-blue-600"
       },
       {
         "name": "Email",
         "icon": "Mail",
-        "url": "mailto:viet@example.com",
+        "url": "mailto:vietnq.work@gmail.com",
         "color": "hover:text-green-400"
       }
     ]

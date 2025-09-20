@@ -31,7 +31,7 @@ export function SkillsSection() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
 
   return (
-    <section id="skills" className="py-20 px-4 relative">
+    <section id="skills" className="py-12 px-4 relative">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgba(59,130,246,0.3)_1px,_transparent_0)] bg-[size:20px_20px]" />

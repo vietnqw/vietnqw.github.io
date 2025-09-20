@@ -1,77 +1,77 @@
 {
-  "categories": ["All", "AI", "Web", "Experiments"],
+  "categories": ["All", "AI", "Data Science"],
   "projects": [
     {
       "id": 1,
-      "title": "AI Chat Assistant",
-      "description": "Intelligent chatbot powered by OpenAI GPT with context awareness and memory",
+      "title": "AI Recruiting Assistant",
+      "description": "Created a Smart AI Recruiter system using GPT 3.5 API from OpenAI to evaluate candidates from CV analysis to interview dialogue analysis.",
       "image": "/ai-chatbot-interface-with-modern-dark-ui.jpg",
       "category": "AI",
       "featured": true,
-      "tech": ["Python", "OpenAI API", "FastAPI", "React"],
+      "tech": ["Python", "OpenAI API", "FastAPI"],
       "liveUrl": "#",
       "githubUrl": "#",
-      "status": "Live"
+      "status": "Completed"
     },
     {
       "id": 2,
-      "title": "Task Management Dashboard",
-      "description": "Full-stack productivity app with real-time collaboration and analytics",
-      "image": "/modern-task-management-dashboard-with-dark-theme.jpg",
-      "category": "Web",
+      "title": "Building LLM for domain adaptation",
+      "description": "Trained a domain-specific tokenizer for Llama 3.1 and continued training Llama 70B models on the Samba Nova platform to adapt them to a new domain.",
+      "image": "/neural-network-visualization-with-nodes-and-connec.jpg",
+      "category": "AI",
       "featured": true,
-      "tech": ["Next.js", "TypeScript", "PostgreSQL", "Tailwind"],
+      "tech": ["Python", "PyTorch", "Llama 3.1", "Samba Nova"],
       "liveUrl": "#",
       "githubUrl": "#",
-      "status": "Live"
+      "status": "Completed"
     },
     {
       "id": 3,
-      "title": "ML Image Classifier",
-      "description": "Computer vision model for real-time object detection and classification",
+      "title": "Student Dropout Prediction",
+      "description": "Developed a machine learning model to predict the likelihood of university students dropping out, using Decision Tree and Random Forest algorithms.",
       "image": "/machine-learning-image-classification-interface.jpg",
-      "category": "AI",
+      "category": "Data Science",
       "featured": false,
-      "tech": ["TensorFlow", "Python", "OpenCV", "Flask"],
+      "tech": ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
       "liveUrl": "#",
       "githubUrl": "#",
-      "status": "Beta"
+      "status": "Completed"
     },
     {
       "id": 4,
-      "title": "Crypto Portfolio Tracker",
-      "description": "Real-time cryptocurrency portfolio tracking with advanced analytics",
-      "image": "/cryptocurrency-portfolio-dashboard-with-charts.jpg",
-      "category": "Web",
+      "title": "Multilingual open-domain NER",
+      "description": "Developed a method to train multilingual large language models for open-domain NER tasks, focusing on low-resource languages like Vietnamese.",
+      "image": "/neural-network-visualization-with-nodes-and-connec.jpg",
+      "category": "AI",
       "featured": false,
-      "tech": ["React", "Node.js", "MongoDB", "Chart.js"],
+      "tech": ["Python", "PyTorch", "Hugging Face", "mT5"],
       "liveUrl": "#",
       "githubUrl": "#",
-      "status": "Live"
+      "status": "Completed"
     },
     {
       "id": 5,
-      "title": "Neural Network Visualizer",
-      "description": "Interactive tool for visualizing and understanding neural network architectures",
-      "image": "/neural-network-visualization-with-nodes-and-connec.jpg",
-      "category": "Experiments",
+      "title": "Optimal Resource Allocation",
+      "description": "Trained an XGBoost model to predict sales outcomes and provided data-driven recommendations for optimizing resource allocation in healthcare.",
+      "image": "/cryptocurrency-portfolio-dashboard-with-charts.jpg",
+      "category": "Data Science",
       "featured": false,
-      "tech": ["D3.js", "Python", "TensorFlow", "WebGL"],
+      "tech": ["Python", "XGBoost", "Pandas", "Scikit-learn"],
       "liveUrl": "#",
       "githubUrl": "#",
-      "status": "Demo"
+      "status": "Completed"
     },
     {
       "id": 6,
-      "title": "Weather Prediction API",
-      "description": "Machine learning API for accurate weather forecasting using historical data",
-      "image": "/weather-prediction-interface-with-graphs-and-maps.jpg",
-      "category": "AI",
+      "title": "Customer Segmentation",
+      "description": "Trained a KMeans clustering model to segment customers based on behavioral and demographic attributes to enhance marketing strategies.",
+      "image": "/modern-task-management-dashboard-with-dark-theme.jpg",
+      "category": "Data Science",
       "featured": false,
-      "tech": ["Python", "Scikit-learn", "FastAPI", "Docker"],
+      "tech": ["Python", "KMeans", "Scikit-learn", "Pandas"],
       "liveUrl": "#",
       "githubUrl": "#",
-      "status": "Live"
+      "status": "Completed"
     }
   ]
 }

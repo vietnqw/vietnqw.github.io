@@ -47,16 +47,16 @@ export function ProjectsSection() {
   const regularProjects = filteredProjects.filter((project) => !project.featured)
 
   return (
-    <section id="projects" className="py-20 px-4 relative">
+    <section id="projects" className="py-12 px-4 relative">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/5 to-transparent" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="font-space-grotesk text-4xl md:text-5xl font-bold mb-6 text-balance">Featured Projects</h2>
+          <h2 className="font-space-grotesk text-4xl md:text-5xl font-bold mb-6 text-balance">My Projects</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4" />
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A showcase of my latest work in AI, web development, and experimental projects
+            A showcase of my latest work in software development
           </p>
         </div>
 

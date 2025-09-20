@@ -1,12 +1,8 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
-import { Card } from "@/components/ui/card"
-import { GradientButton } from "@/components/ui/gradient-button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Github, Linkedin, Mail, Twitter, Send } from "lucide-react"
+import { SiGithub, SiLinkedin, SiFacebook } from "react-icons/si"
+import { FaEnvelope } from "react-icons/fa"
 import content from "@/data/contact.json"
 
 const { socialLinks } = {
@@ -19,55 +15,21 @@ const { socialLinks } = {
 function getIconComponent(iconName: string) {
   switch (iconName) {
     case "Github":
-      return <Github className="w-5 h-5" />
+      return <SiGithub className="w-6 h-6" />
     case "Linkedin":
-      return <Linkedin className="w-5 h-5" />
-    case "Twitter":
-      return <Twitter className="w-5 h-5" />
+      return <SiLinkedin className="w-6 h-6" />
+    case "Facebook":
+      return <SiFacebook className="w-6 h-6" />
     case "Mail":
-      return <Mail className="w-5 h-5" />
+      return <FaEnvelope className="w-6 h-6" />
     default:
       return null
   }
 }
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: "", email: "", message: "" })
-    }, 3000)
-  }
-
   return (
-    <section id="contact" className="py-20 px-4 relative">
+    <section id="contact" className="py-12 px-4 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
 
       <div className="max-w-4xl mx-auto relative z-10">
@@ -77,13 +39,13 @@ export function ContactSection() {
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6" />
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            Have a project in mind or just want to chat? I&apos;d love to hear from
-            you.
+            Have a project in mind or just want to chat? <br /> Feel free to reach out
+            through any of the platforms below.
           </p>
         </div>
 
+        {/* The contact form is commented out for now
         <div className="space-y-12">
-          {/* Contact Form */}
           <div className="animate-on-scroll">
             <Card className="p-8 glass border-primary/20 hover-glow">
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -165,7 +127,7 @@ export function ContactSection() {
                     </div>
                   ) : (
                     <div className="flex items-center justify-center gap-2">
-                      <Send className="w-4 h-4" />
+                      <FaPaperPlane className="w-4 h-4" />
                       Send Message
                     </div>
                   )}
@@ -173,31 +135,29 @@ export function ContactSection() {
 
                 {isSubmitted && (
                   <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-sm text-center animate-fade-in">
-                    Thanks for reaching out! I&apos;ll get back to you soon.
+                    Thanks for reaching out! I'll get back to you soon.
                   </div>
                 )}
               </form>
             </Card>
           </div>
+        </div>
+        */}
 
-          {/* Social Links */}
-          <div className="text-center animate-on-scroll animate-delay-200">
-            <h4 className="font-space-grotesk font-semibold mb-4 text-sm uppercase tracking-wider">
-              Or Connect With Me On
-            </h4>
-            <div className="flex justify-center gap-4">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`p-3 rounded-xl glass border border-primary/10 text-muted-foreground transition-all duration-300 hover:scale-105 hover:border-primary/30 hover-lift ${link.color}`}
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </div>
+        <div className="animate-on-scroll animate-delay-200">
+          <div className="flex justify-center gap-6">
+            {socialLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.name}
+                className={`p-4 rounded-xl glass border border-primary/10 text-muted-foreground transition-all duration-300 hover:scale-110 hover:border-primary/30 hover-lift ${link.color}`}
+              >
+                {link.icon}
+              </a>
+            ))}
           </div>
         </div>
       </div>

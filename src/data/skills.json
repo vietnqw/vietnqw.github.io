@@ -5,58 +5,41 @@
       "icon": "Code2",
       "skills": [
         { "name": "Python", "level": "fluent", "icon": "🐍" },
-        { "name": "JavaScript", "level": "fluent", "icon": "⚡" },
-        { "name": "TypeScript", "level": "proficient", "icon": "🔷" },
+        { "name": "Java", "level": "proficient", "icon": "☕" },
+        { "name": "C/C++", "level": "proficient", "icon": "🔧" },
+        { "name": "Bash", "level": "proficient", "icon": "📜" },
         { "name": "SQL", "level": "proficient", "icon": "🗃️" }
       ]
     },
     {
       "title": "Frameworks",
       "icon": "Layers",
-      "skills": [
-        { "name": "React", "level": "fluent", "icon": "⚛️" },
-        { "name": "Next.js", "level": "proficient", "icon": "▲" },
-        { "name": "Node.js", "level": "proficient", "icon": "🟢" },
-        { "name": "FastAPI", "level": "exploring", "icon": "🚀" }
-      ]
+      "skills": [{ "name": "FastAPI", "level": "proficient", "icon": "🚀" }]
     },
     {
       "title": "AI & ML",
       "icon": "Brain",
       "skills": [
-        { "name": "TensorFlow", "level": "proficient", "icon": "🧠" },
-        { "name": "PyTorch", "level": "exploring", "icon": "🔥" },
-        { "name": "OpenAI API", "level": "fluent", "icon": "🤖" },
-        { "name": "Hugging Face", "level": "proficient", "icon": "🤗" }
+        { "name": "PyTorch", "level": "proficient", "icon": "🔥" },
+        { "name": "Hugging Face", "level": "proficient", "icon": "🤗" },
+        { "name": "Scikit-learn", "level": "proficient", "icon": "🤖" },
+        { "name": "Pandas", "level": "proficient", "icon": "🐼" },
+        { "name": "NumPy", "level": "proficient", "icon": "🔢" },
+        { "name": "Matplotlib", "level": "proficient", "icon": "📊" },
+        { "name": "OpenAI API", "level": "fluent", "icon": "🤖" }
       ]
     },
     {
-      "title": "Tools & DevOps",
+      "title": "Tools",
       "icon": "Terminal",
       "skills": [
         { "name": "Git", "level": "fluent", "icon": "📝" },
-        { "name": "Docker", "level": "exploring", "icon": "🐳" },
-        { "name": "VSCode", "level": "fluent", "icon": "💻" },
-        { "name": "Vercel", "level": "proficient", "icon": "▲" }
+        { "name": "Docker", "level": "proficient", "icon": "🐳" },
+        { "name": "Linux shell", "level": "proficient", "icon": "🐧" }
       ]
     }
   ],
   "additionalSkills": {
-    "skills": [
-      "Tailwind CSS",
-      "MongoDB",
-      "PostgreSQL",
-      "Redis",
-      "AWS",
-      "Firebase",
-      "Figma",
-      "Jupyter",
-      "Pandas",
-      "NumPy",
-      "Scikit-learn",
-      "REST APIs",
-      "GraphQL",
-      "Webpack"
-    ]
+    "skills": ["Docker", "Linux shell", "Git", "Docker", "Linux shell", "Git"]
   }
 }

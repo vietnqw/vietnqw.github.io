@@ -1,36 +1,44 @@
 {
   "avatarInitial": "V",
-  "bio": "I'm a Computer Science graduate and AI enthusiast. I love building intelligent systems, experimenting with new web technologies, and turning ideas into real-world projects.",
+  "bio": "A creative and problem-solving software engineer passionate about professional and personal growth. I thrive on solving complex challenges, continuously learning, and contributing to innovative and collaborative projects that drive meaningful advancements in Information Technology.",
   "funFact": {
     "text": "I once deployed a full app in under 24 hours and it's still running in production today!"
   },
-  "keyTraits": ["Problem Solver", "Quick Learner", "Team Player"],
+  "keyTraits": ["Teamwork", "Logical Thinking", "Critical Thinking"],
   "journey": {
     "milestones": [
       {
         "year": "2024",
-        "title": "AI Engineer",
-        "description": "Started building intelligent systems and exploring machine learning",
-        "icon": "Zap"
+        "title": "AI Engineer at VMO Holdings",
+        "description": "Provided AI solutions for various services, including using latest LLM and advanced techniques to meet customer needs.",
+        "icon": "Building2"
       },
       {
         "year": "2023",
-        "title": "Computer Science Graduate",
-        "description": "Completed degree with focus on AI and software engineering",
-        "icon": "Calendar"
+        "title": "Natural Language Processing Engineer at The Institute of Big Data (VinBigdata)",
+        "description": "Conducted research in information retrieval to enhance search algorithms, improving search functionality.",
+        "icon": "Building2"
+      },
+      {
+        "year": "2023",
+        "title": "Lecturer at MindX Technology School",
+        "description": "Specialized in teaching programming courses to kids such as Scratch, Game Programming, and Python.",
+        "icon": "BookOpen"
       },
       {
         "year": "2022",
-        "title": "First Full-Stack App",
-        "description": "Deployed my first production application in under 24 hours",
-        "icon": "Coffee"
-      },
-      {
-        "year": "2021",
-        "title": "GitHub Student Pack",
-        "description": "Started my journey in open source development",
-        "icon": "MapPin"
+        "title": "Teaching Assistant at Hanoi University of Science and Technology",
+        "description": "Supported instructors in delivering lectures for Database and Techniques of Programming courses at Hanoi University of Science and Technology.",
+        "icon": "BookOpen"
       }
     ]
-  }
+  },
+  "education": [
+    {
+      "year": "2020 - 2025",
+      "degree": "Bachelor of Engineering in Computer Engineering",
+      "institution": "Hanoi University of Science and Technology",
+      "description": "Focused on software development, algorithms, and data structures. Completed a final year project on natural language processing."
+    }
+  ]
 }

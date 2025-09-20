@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Code2, Terminal, Layers, Brain } from "lucide-react"
+import { Code2, Terminal, Layers } from "lucide-react"
 import content from "@/data/skills.json"
 
 const { skillCategories } = content
@@ -11,20 +11,46 @@ const { skillCategories } = content
 const icons: { [key: string]: React.ReactNode } = {
   Code2: <Code2 className="w-6 h-6" />,
   Layers: <Layers className="w-6 h-6" />,
-  Brain: <Brain className="w-6 h-6" />,
   Terminal: <Terminal className="w-6 h-6" />,
 }
 
-const levelColors = {
-  fluent: "bg-green-500/20 text-green-400 border-green-500/30",
-  proficient: "bg-blue-500/20 text-blue-400 border-blue-500/30",
-  exploring: "bg-purple-500/20 text-purple-400 border-purple-500/30",
-}
-
-const levelLabels = {
-  fluent: "Fluent",
-  proficient: "Proficient",
-  exploring: "Exploring",
+const levelConfig = {
+  beginner: {
+    label: "Beginner",
+    color: "bg-gray-500/20 text-gray-400 border-gray-500/30",
+    width: "w-1/6",
+    gradient: "from-gray-500 to-gray-400",
+  },
+  exploring: {
+    label: "Exploring",
+    color: "bg-purple-500/20 text-purple-400 border-purple-500/30",
+    width: "w-2/6",
+    gradient: "from-purple-500 to-purple-400",
+  },
+  proficient: {
+    label: "Proficient",
+    color: "bg-blue-500/20 text-blue-400 border-blue-500/30",
+    width: "w-3/6",
+    gradient: "from-blue-500 to-blue-400",
+  },
+  fluent: {
+    label: "Fluent",
+    color: "bg-green-500/20 text-green-400 border-green-500/30",
+    width: "w-4/6",
+    gradient: "from-green-500 to-green-400",
+  },
+  advanced: {
+    label: "Advanced",
+    color: "bg-teal-500/20 text-teal-400 border-teal-500/30",
+    width: "w-5/6",
+    gradient: "from-teal-500 to-teal-400",
+  },
+  expert: {
+    label: "Expert",
+    color: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
+    width: "w-full",
+    gradient: "from-yellow-500 to-yellow-400",
+  },
 }
 
 export function SkillsSection() {
@@ -48,8 +74,9 @@ export function SkillsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
+        {/* Only 3 tabs: Languages, Frameworks, Tools */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skillCategories.slice(0, 3).map((category, categoryIndex) => (
             <Card
               key={categoryIndex}
               className="p-6 glass border-primary/10 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 hover-lift hover-glow animate-on-scroll"
@@ -89,11 +116,11 @@ export function SkillsSection() {
                       <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
                         <div
                           className={`h-full bg-gradient-to-r transition-all duration-500 ${
-                            skill.level === "fluent"
-                              ? "from-green-500 to-green-400 w-full"
-                              : skill.level === "proficient"
-                              ? "from-blue-500 to-blue-400 w-3/4"
-                              : "from-purple-500 to-purple-400 w-1/2"
+                            levelConfig[skill.level as keyof typeof levelConfig]
+                              ?.gradient
+                          } ${
+                            levelConfig[skill.level as keyof typeof levelConfig]
+                              ?.width
                           } ${
                             hoveredSkill === `${categoryIndex}-${skillIndex}`
                               ? "animate-shimmer"
@@ -104,14 +131,18 @@ export function SkillsSection() {
                       <Badge
                         variant="outline"
                         className={`text-xs transition-all duration-300 ${
-                          levelColors[skill.level as keyof typeof levelColors]
+                          levelConfig[skill.level as keyof typeof levelConfig]
+                            ?.color
                         } ${
                           hoveredSkill === `${categoryIndex}-${skillIndex}`
                             ? "scale-110"
                             : ""
                         }`}
                       >
-                        {levelLabels[skill.level as keyof typeof levelLabels]}
+                        {
+                          levelConfig[skill.level as keyof typeof levelConfig]
+                            ?.label
+                        }
                       </Badge>
                     </div>
                   </div>
@@ -134,7 +165,7 @@ export function SkillsSection() {
                 className="px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-all duration-300 cursor-pointer hover:scale-105 animate-fade-in"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                {tech}
+                {tech.icon} {tech.name}
               </Badge>
             ))}
           </div>

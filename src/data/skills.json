@@ -4,29 +4,23 @@
       "title": "Languages",
       "icon": "Code2",
       "skills": [
-        { "name": "Python", "level": "fluent", "icon": "🐍" },
-        { "name": "Java", "level": "proficient", "icon": "☕" },
-        { "name": "C/C++", "level": "proficient", "icon": "🔧" },
-        { "name": "Bash", "level": "proficient", "icon": "📜" },
-        { "name": "SQL", "level": "proficient", "icon": "🗃️" }
+        { "name": "Python", "level": "advanced", "icon": "🐍" },
+        { "name": "SQL", "level": "fluent", "icon": "🗃️" },
+        { "name": "R", "level": "proficient", "icon": "📊" },
+        { "name": "C/C++", "level": "proficient", "icon": "🔧" }
       ]
     },
     {
       "title": "Frameworks",
       "icon": "Layers",
-      "skills": [{ "name": "FastAPI", "level": "proficient", "icon": "🚀" }]
-    },
-    {
-      "title": "AI & ML",
-      "icon": "Brain",
       "skills": [
-        { "name": "PyTorch", "level": "proficient", "icon": "🔥" },
+        { "name": "Pandas", "level": "fluent", "icon": "🐼" },
+        { "name": "FastAPI", "level": "proficient", "icon": "🚀" },
         { "name": "Hugging Face", "level": "proficient", "icon": "🤗" },
-        { "name": "Scikit-learn", "level": "proficient", "icon": "🤖" },
-        { "name": "Pandas", "level": "proficient", "icon": "🐼" },
-        { "name": "NumPy", "level": "proficient", "icon": "🔢" },
-        { "name": "Matplotlib", "level": "proficient", "icon": "📊" },
-        { "name": "OpenAI API", "level": "fluent", "icon": "🤖" }
+        { "name": "PyTorch", "level": "proficient", "icon": "🔥" },
+        { "name": "scikit-learn", "level": "proficient", "icon": "📈" },
+        { "name": "LangChain", "level": "exploring", "icon": "🤖" },
+        { "name": "Django", "level": "exploring", "icon": "🐍" }
       ]
     },
     {
@@ -34,12 +28,27 @@
       "icon": "Terminal",
       "skills": [
         { "name": "Git", "level": "fluent", "icon": "📝" },
+        { "name": "Linux", "level": "proficient", "icon": "🐧" },
         { "name": "Docker", "level": "proficient", "icon": "🐳" },
-        { "name": "Linux shell", "level": "proficient", "icon": "🐧" }
+        { "name": "PostgreSQL", "level": "proficient", "icon": "🐘" },
+        { "name": "AWS", "level": "exploring", "icon": "☁️" },
+        { "name": "Google Cloud", "level": "beginner", "icon": "🌥️" }
       ]
     }
   ],
   "additionalSkills": {
-    "skills": ["Docker", "Linux shell", "Git", "Docker", "Linux shell", "Git"]
+    "skills": [
+      { "name": "JavaScript", "level": "exploring", "icon": "🌐" },
+      { "name": "Java", "level": "exploring", "icon": "☕" },
+      { "name": "Bash", "level": "proficient", "icon": "📜" },
+      { "name": "NumPy", "level": "proficient", "icon": "🔢" },
+      { "name": "Matplotlib", "level": "proficient", "icon": "📊" },
+      { "name": "Seaborn", "level": "proficient", "icon": "🌊" },
+      { "name": "Plotly", "level": "exploring", "icon": "📈" },
+      { "name": "BeautifulSoup", "level": "proficient", "icon": "🍲" },
+      { "name": "MongoDB", "level": "beginner", "icon": "🍃" },
+      { "name": "Redis", "level": "beginner", "icon": "🟥" },
+      { "name": "HTML/CSS", "level": "exploring", "icon": "🖌️" }
+    ]
   }
 }

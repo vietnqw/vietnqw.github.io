@@ -7,19 +7,37 @@ import { Button } from "@/components/ui/button"
 import { GradientButton } from "@/components/ui/gradient-button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github, Star, Filter } from "lucide-react"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import content from "@/data/projects.json"
 
-const { projects, categories } = content
+const { projects, categories, githubAllUrl } = content
 
 const statusColors: { [key: string]: string } = {
-  Live: "bg-green-500/20 text-green-400 border-green-500/30",
-  Beta: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
-  Demo: "bg-blue-500/20 text-blue-400 border-blue-500/30",
+  Planned: "bg-slate-400 text-slate-900 border-slate-500",
+  InProgress: "bg-cyan-400 text-cyan-900 border-cyan-500",
+  Demo: "bg-blue-400 text-blue-900 border-blue-500",
+  Live: "bg-green-400 text-green-900 border-green-500",
+  Completed: "bg-purple-400 text-purple-900 border-purple-500",
+  Archived: "bg-zinc-500 text-zinc-100 border-zinc-600",
 }
+
+const statusOrder = [
+  "Live",
+  "Demo",
+  "Completed",
+  "InProgress",
+  "Planned",
+  "Archived",
+]
 
 export function ProjectsSection() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null)
 
   const isAllActive = selectedCategories.length === 0
 
@@ -39,7 +57,11 @@ export function ProjectsSection() {
     })
   }
 
-  const filteredProjects = projects.filter(
+  const sortedProjects = [...projects].sort(
+    (a, b) => statusOrder.indexOf(a.status) - statusOrder.indexOf(b.status)
+  )
+
+  const filteredProjects = sortedProjects.filter(
     (project) => isAllActive || selectedCategories.includes(project.category)
   )
 
@@ -97,11 +119,11 @@ export function ProjectsSection() {
               Featured Projects
             </h3>
             <div className="grid lg:grid-cols-2 gap-8">
-              {featuredProjects.map((project) => (
+              {featuredProjects.map((project, index) => (
                 <Card
-                  key={project.id}
+                  key={index}
                   className="group overflow-hidden glass border-primary/20 hover:border-primary/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 hover-lift"
-                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseEnter={() => setHoveredProject(project.title)}
                   onMouseLeave={() => setHoveredProject(null)}
                 >
                   <div className="relative overflow-hidden">
@@ -116,7 +138,7 @@ export function ProjectsSection() {
                     <Badge
                       className={`absolute top-4 right-4 transition-all duration-300 ${
                         statusColors[project.status as keyof typeof statusColors]
-                      } ${hoveredProject === project.id ? "scale-110" : ""}`}
+                      } ${hoveredProject === project.title ? "scale-110" : ""}`}
                     >
                       {project.status}
                     </Badge>
@@ -143,18 +165,50 @@ export function ProjectsSection() {
                     </div>
 
                     <div className="flex gap-3">
-                      <GradientButton size="sm" className="flex-1">
-                        <ExternalLink className="w-4 h-4" />
-                        <span>Live Demo</span>
-                      </GradientButton>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="border-primary/30 hover:bg-primary/10 bg-transparent hover-glow"
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </Button>
+                      {project.liveUrl !== "#" ? (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1"
+                        >
+                          <GradientButton size="sm" className="w-full">
+                            <ExternalLink className="w-4 h-4" />
+                            <span>Live Demo</span>
+                          </GradientButton>
+                        </a>
+                      ) : (
+                        <GradientButton size="sm" className="w-full" disabled>
+                          <ExternalLink className="w-4 h-4" />
+                          <span>Live Demo</span>
+                        </GradientButton>
+                      )}
+                      {project.githubUrl !== "#" ? (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="border-primary/30 hover:bg-primary/10 bg-transparent hover-glow"
+                          >
+                            <Github className="w-4 h-4 mr-2" />
+                            Code
+                          </Button>
+                        </a>
+                      ) : (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="border-primary/30 hover:bg-primary/10 bg-transparent hover-glow"
+                          disabled
+                        >
+                          <Github className="w-4 h-4 mr-2" />
+                          Code
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </Card>
@@ -168,11 +222,11 @@ export function ProjectsSection() {
           <div>
             <h3 className="font-space-grotesk text-2xl font-bold mb-8">All Projects</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {regularProjects.map((project) => (
+              {regularProjects.map((project, index) => (
                 <Card
-                  key={project.id}
+                  key={index}
                   className="group overflow-hidden glass border-primary/10 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 hover-lift"
-                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseEnter={() => setHoveredProject(project.title)}
                   onMouseLeave={() => setHoveredProject(null)}
                 >
                   <div className="relative overflow-hidden">
@@ -188,7 +242,7 @@ export function ProjectsSection() {
                       className={`absolute top-3 right-3 text-xs transition-all duration-300 ${
                         statusColors[project.status as keyof typeof statusColors]
                       } ${
-                        hoveredProject === project.id
+                        hoveredProject === project.title
                           ? "animate-pulse scale-110"
                           : ""
                       }`}
@@ -216,24 +270,66 @@ export function ProjectsSection() {
                         </Badge>
                       ))}
                       {project.tech.length > 3 && (
-                        <Badge variant="secondary" className="text-xs">
-                          +{project.tech.length - 3}
-                        </Badge>
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Badge variant="secondary" className="text-xs">
+                                +{project.tech.length - 3}
+                              </Badge>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>
+                                {project.tech.slice(3).join(", ")}
+                              </p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
                       )}
                     </div>
 
                     <div className="flex gap-2">
-                      <GradientButton size="sm" className="flex-1 text-xs">
-                        <ExternalLink className="w-3 h-3" />
-                        <span>Demo</span>
-                      </GradientButton>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="border-primary/30 hover:bg-primary/10 bg-transparent hover-glow"
-                      >
-                        <Github className="w-3 h-3" />
-                      </Button>
+                      {project.liveUrl !== "#" ? (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1"
+                        >
+                          <GradientButton size="sm" className="w-full text-xs">
+                            <ExternalLink className="w-3 h-3" />
+                            <span>Demo</span>
+                          </GradientButton>
+                        </a>
+                      ) : (
+                        <GradientButton size="sm" className="w-full text-xs" disabled>
+                          <ExternalLink className="w-3 h-3" />
+                          <span>Demo</span>
+                        </GradientButton>
+                      )}
+                      {project.githubUrl !== "#" ? (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="border-primary/30 hover:bg-primary/10 bg-transparent hover-glow"
+                          >
+                            <Github className="w-3 h-3" />
+                          </Button>
+                        </a>
+                      ) : (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="border-primary/30 hover:bg-primary/10 bg-transparent hover-glow"
+                          disabled
+                        >
+                          <Github className="w-3 h-3" />
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </Card>
@@ -245,14 +341,21 @@ export function ProjectsSection() {
         {/* Call to Action */}
         <div className="text-center mt-16">
           <p className="text-muted-foreground mb-6">Want to see more of my work?</p>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-primary/50 text-primary hover:bg-primary/10 px-8 py-3 rounded-xl bg-transparent hover-lift hover-glow"
+          <a
+            href={githubAllUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
           >
-            <Github className="w-5 h-5 mr-2" />
-            View All on GitHub
-          </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary/50 text-primary hover:bg-primary/10 px-8 py-3 rounded-xl bg-transparent hover-lift hover-glow"
+            >
+              <Github className="w-5 h-5 mr-2" />
+              View All on GitHub
+            </Button>
+          </a>
         </div>
       </div>
     </section>

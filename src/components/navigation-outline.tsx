@@ -26,6 +26,8 @@ export function NavigationOutline() {
         element: document.getElementById(section.id),
       }))
 
+      let newActiveSection: string | null = null
+
       const currentSection = sectionElements.find(({ element }) => {
         if (!element) return false
         const rect = element.getBoundingClientRect()
@@ -33,7 +35,18 @@ export function NavigationOutline() {
       })
 
       if (currentSection) {
-        setActiveSection(currentSection.id)
+        newActiveSection = currentSection.id
+      }
+
+      // Special case for the last section when at the bottom of the page
+      const isBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 2
+      if (isBottom) {
+        newActiveSection = sections[sections.length - 1].id
+      }
+
+      if (newActiveSection) {
+        setActiveSection(newActiveSection)
       }
     }
 

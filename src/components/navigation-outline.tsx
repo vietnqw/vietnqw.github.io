@@ -14,6 +14,7 @@ const sections = [
 export function NavigationOutline() {
   const [activeSection, setActiveSection] = useState("hero")
   const [isVisible, setIsVisible] = useState(false)
+  const [hoveredSection, setHoveredSection] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,32 +67,67 @@ export function NavigationOutline() {
   return (
     <nav
       className={cn(
-        "fixed right-8 top-1/2 -translate-y-1/2 z-50 transition-all duration-300",
-        isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none",
+        "fixed right-8 top-1/2 -translate-y-1/2 z-50 transition-all duration-500 ease-out",
+        isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8 pointer-events-none",
       )}
     >
-      <div className="bg-background/80 backdrop-blur-md border border-border/50 rounded-full p-2 shadow-lg">
-        <div className="flex flex-col gap-1">
+      <div className="bg-background/80 backdrop-blur-md border border-border/50 rounded-full p-3 shadow-xl">
+        <div className="flex flex-col gap-3">
           {sections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => scrollToSection(section.id)}
-              className={cn(
-                "group relative w-3 h-3 rounded-full transition-all duration-300 hover:scale-125",
-                activeSection === section.id
-                  ? "bg-primary shadow-lg shadow-primary/50"
-                  : "bg-muted-foreground/30 hover:bg-muted-foreground/60",
-              )}
-              aria-label={`Navigate to ${section.label}`}
-            >
-              {/* Tooltip */}
-              <span className="absolute right-6 top-1/2 -translate-y-1/2 px-2 py-1 bg-background/90 backdrop-blur-sm border border-border/50 rounded text-xs font-medium text-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
-                {section.label}
-              </span>
-            </button>
+            <div key={section.id} className="relative flex items-center justify-center">
+              {/* Background highlight effect */}
+              <div 
+                className={cn(
+                  "absolute w-3 h-3 bg-primary/10 rounded-full transition-all duration-300 ease-out",
+                  hoveredSection === section.id ? "opacity-100 scale-200" : "opacity-0 scale-100"
+                )}
+              />
+              
+              <button
+                onClick={() => scrollToSection(section.id)}
+                onMouseEnter={() => setHoveredSection(section.id)}
+                onMouseLeave={() => setHoveredSection(null)}
+                className={cn(
+                  "relative w-3 h-3 rounded-full transition-all duration-300 ease-out transform z-10 group",
+                  activeSection === section.id
+                    ? "bg-primary shadow-lg shadow-primary/50 animate-pulse-slow"
+                    : "bg-muted-foreground/30 hover:bg-muted-foreground/60",
+                  hoveredSection === section.id ? "scale-150" : "scale-100",
+                  "cursor-pointer"
+                )}
+                aria-label={`Navigate to ${section.label}`}
+                type="button"
+              >
+                {/* Inner glow for active item */}
+                {activeSection === section.id && (
+                  <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-30" />
+                )}
+                
+                {/* Tooltip with arrow, only visible on hover */}
+                {hoveredSection === section.id && (
+                  <div className="absolute right-6 top-1/2 -translate-y-1/2 flex items-center transition-opacity duration-300 ease-out pointer-events-none opacity-100">
+                    <div className="w-2 h-2 bg-background/90 border-t border-r border-border/50 transform rotate-45 -mr-1" />
+                    <span className="px-3 py-1.5 bg-background/90 backdrop-blur-sm border border-border/50 rounded text-xs font-medium text-foreground whitespace-nowrap">
+                      {section.label}
+                    </span>
+                  </div>
+                )}
+              </button>
+            </div>
           ))}
         </div>
       </div>
+      
+      {/* Add custom animation to global CSS */}
+      <style jsx global>{`
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.8; }
+        }
+        .animate-pulse-slow {
+          animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+      `}</style>
     </nav>
   )
 }

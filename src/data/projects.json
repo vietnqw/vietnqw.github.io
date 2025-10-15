@@ -20,18 +20,18 @@
         "JWT Auth"
       ],
       "liveUrl": "https://sciencecompetitions.org/",
-      "githubUrl": "https://github.com/nhandz2008/sci-project",
+      "githubUrl": "https://github.com/vietnqw/sci-project",
       "status": "Live"
     },
     {
-      "title": "NaviMinD",
-      "description": "NaviMinD summarizes news and verifies facts using only trusted, official sources.",
-      "image": "/projects/weather-prediction-interface-with-graphs-and-maps.jpg",
+      "title": "VeriNews",
+      "description": "VeriNews is an AI-powered platform that summarizes news and verifies facts using only trusted, official sources. It helps users quickly digest information and check the reliability of news articles.",
+      "image": "/projects/verinews.png",
       "category": "AI",
-      "featured": false,
+      "featured": true,
       "tech": [],
       "liveUrl": "#",
-      "githubUrl": "#",
+      "githubUrl": "https://github.com/vietnqw/verinews",
       "status": "InProgress"
     }
   ]

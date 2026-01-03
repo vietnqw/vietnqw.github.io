@@ -1,4 +1,4 @@
-(function(){"use strict";const g=`
+(function(){"use strict";const S=`
 import sys
 import json
 import traceback
@@ -48,7 +48,7 @@ def _run_leetcode_case(code_exec_success, method_name, args_lines):
         
     except Exception:
         return {"error": traceback.format_exc()}
-`,_=`
+`,b=`
 # Common LeetCode-style helpers (auto-imported before user code)
 import sys
 import math
@@ -76,4 +76,7 @@ from typing import (
 )
 
 from collections import deque, defaultdict, Counter
-`;let e=null,s=null,i=null;const d=async()=>s||(s=(async()=>{try{i||(i=(await import("https://cdn.jsdelivr.net/pyodide/v0.29.0/full/pyodide.mjs")).loadPyodide),e=await i({indexURL:"https://cdn.jsdelivr.net/pyodide/v0.29.0/full/"}),postMessage({type:"loaded"})}catch(r){console.error("Failed to load Pyodide",r),postMessage({type:"error",error:"Failed to load Python runtime"})}})(),s);let a=[],n=[];const S=r=>a.push(r),b=r=>n.push(r);self.onmessage=async r=>{const{type:u,code:P,methodName:x,testCases:p}=r.data;if(u==="init"){await d();return}if(u==="run"){if(e||await d(),!e)return;a=[],n=[],e.setStdout({batched:S}),e.setStderr({batched:b});try{e.runPython(_)}catch(t){console.error("Prelude error",t)}let m=!0;try{await e.runPythonAsync(P)}catch(t){m=!1;const c=t.toString();p.forEach(o=>{postMessage({type:"result",caseId:o.id,result:{passed:!1,actual:"",error:c,executionTime:0}})}),postMessage({type:"finished"});return}try{e.runPython(g)}catch(t){console.error("Harness error",t)}const f=e.globals.get("_run_leetcode_case");for(const t of p){a=[],n=[];const c=performance.now();let o;try{const l=f(m,x,t.args);o=l.toJs(),l.destroy()}catch(l){o={error:l.toString()}}const y=performance.now()-c,h=[...a,...n].join("").trim();o.error?postMessage({type:"result",caseId:t.id,result:{passed:!1,actual:"",output:h||void 0,error:o.error,executionTime:y}}):postMessage({type:"result",caseId:t.id,result:{passed:!0,actual:o.actual,output:h||void 0,executionTime:y}})}f.destroy(),postMessage({type:"finished"})}}})();
+`;let e=null,s=null,i=null;const p=async()=>s||(s=(async()=>{try{i||(i=(await import("https://cdn.jsdelivr.net/pyodide/v0.29.0/full/pyodide.mjs")).loadPyodide),e=await i({indexURL:"https://cdn.jsdelivr.net/pyodide/v0.29.0/full/"}),postMessage({type:"loaded"})}catch(r){console.error("Failed to load Pyodide",r),postMessage({type:"error",error:"Failed to load Python runtime"})}})(),s);let n=[],a=[];const P=r=>n.push(r),x=r=>a.push(r);self.onmessage=async r=>{const{type:m,code:w,methodName:E,testCases:f}=r.data;if(m==="init"){await p();return}if(m==="run"){if(e||await p(),!e)return;n=[],a=[],e.setStdout({batched:P}),e.setStderr({batched:x});try{e.runPython(b)}catch(t){console.error("Prelude error",t)}let y=!0;try{await e.runPythonAsync(w)}catch(t){y=!1;const c=t.toString();f.forEach(o=>{postMessage({type:"result",caseId:o.id,result:{passed:!1,actual:"",error:c,executionTime:0}})}),postMessage({type:"finished"});return}try{e.runPython(S)}catch(t){console.error("Harness error",t)}const h=e.globals.get("_run_leetcode_case");for(const t of f){n=[],a=[];const c=performance.now();let o;try{const l=h(y,E,t.args);o=l.toJs(),l.destroy()}catch(l){o={error:l.toString()}}const g=performance.now()-c,u=[...n,...a],d=u.join(""),_=(!d.includes(`
+`)&&!d.includes("\r")&&u.length>1?u.join(`
+`):d).replace(/\r\n/g,`
+`).trimEnd();o.error?postMessage({type:"result",caseId:t.id,result:{passed:!1,actual:"",output:_||void 0,error:o.error,executionTime:g}}):postMessage({type:"result",caseId:t.id,result:{passed:!0,actual:o.actual,output:_||void 0,executionTime:g}})}h.destroy(),postMessage({type:"finished"})}}})();

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,ital,wght@6..72,0,300;6..72,0,400;6..72,1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="backdrop" aria-hidden="true"></canvas>
+
+<div class="page">
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <img class="portrait" alt="">
+        <a href="#top" class="mono caps" data-field="name"></a>
+      </div>
+      <nav class="nav mono">
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#background">Background</a>
+        <button type="button" id="theme-toggle" class="switch" aria-label="Toggle light / dark theme">
+          <span class="knob"></span>
+          <span class="icons">
+            <svg class="sun" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+            </svg>
+            <svg class="moon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+            </svg>
+          </span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section id="top" class="wrap hero">
+    <div class="hero-text">
+      <span class="eyebrow mono caps" data-field="eyebrow"></span>
+      <h1 data-field="headline"></h1>
+      <p class="intro" data-field="intro"></p>
+      <div class="hero-links mono" id="hero-links"></div>
+    </div>
+    <figure class="hero-figure">
+      <canvas id="helix"></canvas>
+    </figure>
+  </section>
+
+  <section id="publications" class="band">
+    <div class="wrap">
+      <div class="section-head mono">
+        <span class="label caps">01 — Publications</span>
+        <span id="pub-count"></span>
+      </div>
+      <div id="pub-list"></div>
+      <div class="pub-more">
+        <button type="button" id="pub-toggle" class="btn mono caps"></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="band">
+    <div class="wrap">
+      <div class="section-head mono">
+        <span class="label caps">02 — Projects &amp; software</span>
+      </div>
+      <div class="project-grid" id="project-grid"></div>
+    </div>
+  </section>
+
+  <section id="background" class="band">
+    <div class="wrap">
+      <div class="section-head mono">
+        <span class="label caps">03 — Background</span>
+      </div>
+      <div class="columns">
+        <div>
+          <div class="col-title mono caps">Experience</div>
+          <div id="experience"></div>
+        </div>
+        <div>
+          <div class="col-title mono caps">Education</div>
+          <div id="education"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner mono">
+      <span class="accent">&#169;</span> <span id="year"></span> <span data-field="name"></span>
+    </div>
+  </footer>
+
+</div>
+
+<script src="animations.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

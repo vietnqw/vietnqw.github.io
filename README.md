@@ -7,6 +7,7 @@ index.html      page structure
 style.css       look & feel
 site.js         fills the page from content/*.json, theme switch
 animations.js   hero helix + orbit backdrop
+favicon.svg     tab icon (+ apple-touch-icon.png for iOS)
 content/        everything you edit: text, lists, images, CV
 ```
 

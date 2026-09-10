@@ -99,6 +99,7 @@ h1 em { font-style: italic; color: var(--accent); }
 .band { border-top: 1px solid var(--line); }
 .band > .wrap { padding-block: clamp(56px, 7.5vw, 104px); }
 .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; color: var(--muted); }
+h2, h3 { margin: 0; font-size: inherit; font-weight: inherit; }
 .section-head .label { letter-spacing: 0.2em; }
 
 /* publications */

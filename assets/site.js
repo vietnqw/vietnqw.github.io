@@ -7,7 +7,6 @@
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   // ---- profile / hero ----
-  document.title = site.name;
   document.querySelectorAll('[data-field="name"]').forEach(el => el.textContent = site.name);
   const portrait = $('.portrait');
   if (site.portrait) { portrait.src = site.portrait; portrait.alt = site.name; } else portrait.hidden = true;

@@ -4,10 +4,7 @@ Plain HTML, CSS and JavaScript. No build step, no dependencies.
 
 ```
 index.html      page structure
-style.css       look & feel
-site.js         fills the page from content/*.json, theme switch
-animations.js   hero helix + orbit backdrop
-favicon.svg     tab icon (+ apple-touch-icon.png for iOS)
+assets/         style.css, site.js (fills the page from content/*.json), animations.js, favicon
 content/        everything you edit: text, lists, images, CV
 ```
 

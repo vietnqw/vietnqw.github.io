@@ -1,0 +1,16 @@
+[
+  {
+    "name": "VeriNews",
+    "blurb": "AI-powered platform that summarizes news and verifies facts using only trusted, official sources.",
+    "image": "content/images/projects/verinews.jpg",
+    "cta": "Code",
+    "href": "https://github.com/vietnqw/verinews"
+  },
+  {
+    "name": "Science Competition Insights",
+    "blurb": "A platform to discover, explore, and participate in global science and technology competitions. Next.js, FastAPI, PostgreSQL, Docker, AWS.",
+    "image": "content/images/projects/sciencecompetitions.jpg",
+    "cta": "Code",
+    "href": "https://github.com/vietnqw/sci-project"
+  }
+]

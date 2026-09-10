@@ -1,0 +1,48 @@
+{
+  "experience": [
+    {
+      "when": "2026—present",
+      "role": "Automation & AI System Engineer",
+      "place": "Zeder Viet Nam",
+      "logo": "content/images/logos/zeder.png"
+    },
+    {
+      "when": "2024—2026",
+      "role": "AI Engineer",
+      "place": "VMO Holdings",
+      "logo": "content/images/logos/vmo.png"
+    },
+    {
+      "when": "2023—2024",
+      "role": "Natural Language Processing Engineer",
+      "place": "The Institute of Big Data (VinBigdata)",
+      "logo": "content/images/logos/vinbigdata.png"
+    },
+    {
+      "when": "2021—2023",
+      "role": "Lecturer",
+      "place": "MindX Technology School",
+      "logo": "content/images/logos/mindx.png"
+    },
+    {
+      "when": "2022—2023",
+      "role": "Teaching Assistant",
+      "place": "Hanoi University of Science and Technology",
+      "logo": "content/images/logos/hust.png"
+    }
+  ],
+  "education": [
+    {
+      "when": "2026—present",
+      "role": "Master of Science in Computer Science",
+      "place": "VinUniversity",
+      "logo": "content/images/logos/vinuni.png"
+    },
+    {
+      "when": "2019—2024",
+      "role": "Engineer's Degree in Information Technology (Global ICT)",
+      "place": "Hanoi University of Science and Technology",
+      "logo": "content/images/logos/hust.png"
+    }
+  ]
+}

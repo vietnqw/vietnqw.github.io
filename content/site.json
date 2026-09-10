@@ -1,0 +1,27 @@
+{
+  "name": "Ngô Quang Việt",
+  "portrait": "content/images/portrait.jpg",
+  "eyebrow": "Ngô Quang Việt — AI Researcher",
+  "headline": "Teaching machines to read <em>biology</em>.",
+  "intro": "I work on models for protein and genomics — the part where a string of letters becomes a shape, and a shape becomes a function. Between a wet lab and a GPU cluster.",
+  "email": "vietnq.work@gmail.com",
+  "links": [
+    {
+      "label": "CV",
+      "href": "content/Ngo-Quang-Viet-CV.pdf"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/vietnqw"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/ngo-quang-viet"
+    }
+  ],
+  "settings": {
+    "theme": "system",
+    "accent": "#6b5a2f",
+    "motion": 1
+  }
+}

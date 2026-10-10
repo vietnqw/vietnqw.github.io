@@ -1,4 +1,4 @@
-# vietngoquang.com
+# ngoquangviet.com
 
 Source of my personal website. Each version lives on its own branch; this branch only holds this index.
 

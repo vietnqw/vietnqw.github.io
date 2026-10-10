@@ -1,5 +1,5 @@
 {
-  "name": "Ngô Quang Việt",
+  "name": "Viet Q. Ngo",
   "portrait": "content/images/portrait.jpg",
   "eyebrow": "Ngô Quang Việt — AI Researcher",
   "headline": "Teaching machines to read <em>biology</em>.",
@@ -8,7 +8,11 @@
   "links": [
     {
       "label": "CV",
-      "href": "content/Ngo-Quang-Viet-CV.pdf"
+      "href": "content/Viet-Q-Ngo-CV.pdf"
+    },
+    {
+      "label": "Google Scholar",
+      "href": "https://scholar.google.com/citations?user=v_j19oIAAAAJ"
     },
     {
       "label": "GitHub",
